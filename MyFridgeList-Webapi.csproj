@@ -6,6 +6,13 @@
     <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     <CodeAnalysisRuleSet>./code.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\Models\Responses\NewFolder1\**" />
+    <Content Remove="Core\Models\Responses\NewFolder1\**" />
+    <EmbeddedResource Remove="Core\Models\Responses\NewFolder1\**" />
+    <None Remove="Core\Models\Responses\NewFolder1\**" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="9.4.0" />
@@ -34,10 +41,6 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="6.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Core\Data\Configurations\" />
   </ItemGroup>
 
   <ItemGroup>

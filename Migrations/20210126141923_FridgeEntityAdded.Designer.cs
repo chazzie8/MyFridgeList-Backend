@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyFridgeListWebapi.Core.Data.Database;
 
 namespace MyFridgeListWebapi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210126141923_FridgeEntityAdded")]
+    partial class FridgeEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,7 +145,7 @@ namespace MyFridgeListWebapi.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.Fridge", b =>
+            modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.Fridge.Fridge", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,14 +154,9 @@ namespace MyFridgeListWebapi.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Fridges");
+                    b.ToTable("Fridge");
                 });
 
             modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.User", b =>
@@ -285,15 +282,6 @@ namespace MyFridgeListWebapi.Migrations
                 {
                     b.HasOne("MyFridgeListWebapi.Core.Data.Entities.User", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.Fridge", b =>
-                {
-                    b.HasOne("MyFridgeListWebapi.Core.Data.Entities.User", "User")
-                        .WithMany("Fridges")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

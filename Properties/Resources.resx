@@ -228,6 +228,9 @@
   <data name="ResetPasswordSucceededSubject" xml:space="preserve">
     <value>Passwortänderung erfolgreich.</value>
   </data>
+  <data name="ValidationErrorFridgeWithNameStillExists" xml:space="preserve">
+    <value>Ein Kühlschrank mit dem Name {0} existiert bereits.</value>
+  </data>
   <data name="ValidationErrorInvalidEmailAddress" xml:space="preserve">
     <value>Die übergebene E-Mail Adresse ist ungültig.</value>
   </data>
@@ -239,6 +242,9 @@
   </data>
   <data name="ValidationErrorMissingEmailAddress" xml:space="preserve">
     <value>Bitte geben sie eine E-Mail Adresse an.</value>
+  </data>
+  <data name="ValidationErrorMissingFridgeName" xml:space="preserve">
+    <value>Bitte geben sie den Namen des Kühlschranks ein.</value>
   </data>
   <data name="ValidationErrorMissingNewPassword" xml:space="preserve">
     <value>Bitte geben sie ein das neues Passwort an.</value>

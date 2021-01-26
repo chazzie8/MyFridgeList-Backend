@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
@@ -11,5 +12,6 @@ namespace MyFridgeListWebapi.Core.Data.Entities
         public DateTime ModifiedAt { get; set; }
         public DateTime? FirstLoginAt { get; set; }
         public DateTime LastLoginAt { get; set; }
+        public IList<Fridge> Fridges { get; set; }
     }
 }
