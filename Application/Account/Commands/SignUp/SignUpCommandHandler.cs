@@ -22,11 +22,12 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignUp
         public async Task<SignUpResponse> Handle(SignUpCommand request, CancellationToken cancellationToken)
         {
             var email = Uri.UnescapeDataString(request.Email);
+            var username = Uri.UnescapeDataString(request.Username);
             var password = Uri.UnescapeDataString(request.Password);
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                UserName = email,
+                UserName = username,
                 Email = email,
                 CreatedAt = DateTime.Now,
                 ModifiedAt = DateTime.Now
