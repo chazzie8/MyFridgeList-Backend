@@ -21,8 +21,6 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Create
 
         public async Task<CreateFridgeResponse> Handle(CreateFridgeCommand request, CancellationToken cancellationToken)
         {
-            var user = await _dbContext.Users.Include(x => x.Fridges).Where(x => x.Id == request.UserId).ToListAsync();
-
             var fridge = new Fridge
             {
                 Id = Guid.NewGuid(),
