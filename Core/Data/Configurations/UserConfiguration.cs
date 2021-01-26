@@ -12,6 +12,11 @@ namespace MyFridgeListWebapi.Core.Data.Configurations
                 .HasMany(x => x.Fridges)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
+
+            builder
+                .HasMany(x => x.Shoppinglists)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId);
         }
     }
 }

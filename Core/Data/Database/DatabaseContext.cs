@@ -14,6 +14,7 @@ namespace MyFridgeListWebapi.Core.Data.Database
         }
 
         public DbSet<Fridge> Fridges { get; set; }
+        public DbSet<Shoppinglist> Shoppinglists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

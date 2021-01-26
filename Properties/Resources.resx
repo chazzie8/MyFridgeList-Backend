@@ -252,6 +252,9 @@
   <data name="ValidationErrorMissingPassword" xml:space="preserve">
     <value>Bitte geben sie ein Passwort an.</value>
   </data>
+  <data name="ValidationErrorMissingShoppinglistName" xml:space="preserve">
+    <value>Bitte geben sie den Namen der Einkaufsliste ein.</value>
+  </data>
   <data name="ValidationErrorMissingUserId" xml:space="preserve">
     <value>Bitte geben sie eine Benuzer Id an.</value>
   </data>
@@ -260,6 +263,9 @@
   </data>
   <data name="ValidationErrorPasswordLessEightCharacter" xml:space="preserve">
     <value>Das Passwort muss mindestens 8 Zeichen lang sein.</value>
+  </data>
+  <data name="ValidationErrorShoppinglistWithNameStillExists" xml:space="preserve">
+    <value>Eine Einkaufsliste mit dem Name {0} existiert bereits.</value>
   </data>
   <data name="ValidationErrorUserIsNotAllowed" xml:space="preserve">
     <value>Der Benutzer ist nicht berechtigt die gewünschte Aktion durchzuführen.</value>
