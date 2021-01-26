@@ -11,6 +11,7 @@ namespace MyFridgeListWebapi.Core.Models.Responses.Account
 
         public string Token { get; set; }
         public Guid UserId { get; set; }
+        public string Username { get; set; }
         public DateTime ValidFrom { get; set; }
         public DateTime ExpiredAt { get; set; }
         public bool Succeeded { get; }

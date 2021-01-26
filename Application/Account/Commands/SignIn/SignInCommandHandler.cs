@@ -64,6 +64,7 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignIn
                 return new SignInResponse(true)
                 {
                     UserId = token.UserId(),
+                    Username = user.UserName,
                     Token = token.Token(),
                     ExpiredAt = token.ValidTo
                 };
