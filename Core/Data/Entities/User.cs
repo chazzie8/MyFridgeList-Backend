@@ -13,5 +13,6 @@ namespace MyFridgeListWebapi.Core.Data.Entities
         public DateTime? FirstLoginAt { get; set; }
         public DateTime LastLoginAt { get; set; }
         public IList<Fridge> Fridges { get; set; }
+        public IList<Shoppinglist> Shoppinglists { get; set; }
     }
 }

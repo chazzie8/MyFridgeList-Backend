@@ -466,6 +466,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie den Namen der Einkaufsliste ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingShoppinglistName {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingShoppinglistName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie eine Benuzer Id an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingUserId {
@@ -489,6 +498,15 @@ namespace MyFridgeListWebapi.Properties {
         public static string ValidationErrorPasswordLessEightCharacter {
             get {
                 return ResourceManager.GetString("ValidationErrorPasswordLessEightCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Eine Einkaufsliste mit dem Name {0} existiert bereits. ähnelt.
+        /// </summary>
+        public static string ValidationErrorShoppinglistWithNameStillExists {
+            get {
+                return ResourceManager.GetString("ValidationErrorShoppinglistWithNameStillExists", resourceCulture);
             }
         }
         
