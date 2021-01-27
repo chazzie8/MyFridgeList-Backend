@@ -42,7 +42,7 @@ namespace MyFridgeListWebapi.Controllers
         public async Task<Response<EditFridgeResponse>> EditFridgeAsync(Guid fridgeId, [FromBody] EditFridgeCommand command)
         {
             command.UserId = UserId;
-            command.FridgeId = fridgeId;
+            command.Id = fridgeId;
 
             return Success(await Mediator.Send(command));
         }

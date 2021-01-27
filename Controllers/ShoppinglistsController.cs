@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Create;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Delete;
 using MyFridgeListWebapi.Core.Models;
 using MyFridgeListWebapi.Core.Models.Responses.Shoppinglist;
-using System;
-using System.Threading.Tasks;
 
 namespace MyFridgeListWebapi.Controllers
 {
