@@ -394,6 +394,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ein Kühlschrank mit der ID {0} existiert nicht. ähnelt.
+        /// </summary>
+        public static string ValidationErrorFridgeWithIdNotExists {
+            get {
+                return ResourceManager.GetString("ValidationErrorFridgeWithIdNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ein Kühlschrank mit dem Name {0} existiert bereits. ähnelt.
         /// </summary>
         public static string ValidationErrorFridgeWithNameStillExists {
@@ -435,6 +444,15 @@ namespace MyFridgeListWebapi.Properties {
         public static string ValidationErrorMissingEmailAddress {
             get {
                 return ResourceManager.GetString("ValidationErrorMissingEmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie die ID des Kühlschranks ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingFridgeId {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingFridgeId", resourceCulture);
             }
         }
         
