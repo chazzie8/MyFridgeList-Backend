@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Create;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Delete;
+using MyFridgeListWebapi.Application.Shoppinglists.Command.Edit;
 using MyFridgeListWebapi.Core.Models;
 using MyFridgeListWebapi.Core.Models.Responses.Shoppinglist;
 
@@ -35,6 +36,15 @@ namespace MyFridgeListWebapi.Controllers
 
             await Mediator.Send(command);
             return NoContent();
+        }
+
+        [HttpPut("{shoppinglistId}")]
+        public async Task<Response<EditShoppinglistResponse>> EditShoppinglistAsync(Guid shoppinglistId, [FromBody] EditShoppinglistCommand command)
+        {
+            command.UserId = UserId;
+            command.Id = shoppinglistId;
+
+            return Success(await Mediator.Send(command));
         }
     }
 }
