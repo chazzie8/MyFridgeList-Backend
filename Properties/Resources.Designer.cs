@@ -394,6 +394,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ein Kühlschrank mit der ID {0} existiert nicht. ähnelt.
+        /// </summary>
+        public static string ValidationErrorFridgeWithIdNotExists {
+            get {
+                return ResourceManager.GetString("ValidationErrorFridgeWithIdNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ein Kühlschrank mit dem Name {0} existiert bereits. ähnelt.
         /// </summary>
         public static string ValidationErrorFridgeWithNameStillExists {
@@ -412,7 +421,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie einen Bestätigungscode an. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie einen Bestätigungscode an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingConfirmCode {
             get {
@@ -421,7 +430,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie das aktuelle Passwort an. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie das aktuelle Passwort an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingCurrentPassword {
             get {
@@ -430,7 +439,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie eine E-Mail Adresse an. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie eine E-Mail Adresse an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingEmailAddress {
             get {
@@ -439,7 +448,16 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie den Namen des Kühlschranks ein. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie die ID des Kühlschranks ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingFridgeId {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingFridgeId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie den Namen des Kühlschranks ein. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingFridgeName {
             get {
@@ -448,7 +466,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie ein das neues Passwort an. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie ein das neues Passwort an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingNewPassword {
             get {
@@ -457,7 +475,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie ein Passwort an. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie ein Passwort an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingPassword {
             get {
@@ -466,7 +484,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie den Namen der Einkaufsliste ein. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie den Namen der Einkaufsliste ein. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingShoppinglistName {
             get {
@@ -475,7 +493,7 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie eine Benuzer Id an. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie eine Benuzer Id an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingUserId {
             get {

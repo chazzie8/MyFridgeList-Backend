@@ -228,6 +228,9 @@
   <data name="ResetPasswordSucceededSubject" xml:space="preserve">
     <value>Passwortänderung erfolgreich.</value>
   </data>
+  <data name="ValidationErrorFridgeWithIdNotExists" xml:space="preserve">
+    <value>Ein Kühlschrank mit der ID {0} existiert nicht.</value>
+  </data>
   <data name="ValidationErrorFridgeWithNameStillExists" xml:space="preserve">
     <value>Ein Kühlschrank mit dem Name {0} existiert bereits.</value>
   </data>
@@ -235,28 +238,31 @@
     <value>Die übergebene E-Mail Adresse ist ungültig.</value>
   </data>
   <data name="ValidationErrorMissingConfirmCode" xml:space="preserve">
-    <value>Bitte geben sie einen Bestätigungscode an.</value>
+    <value>Bitte geben Sie einen Bestätigungscode an.</value>
   </data>
   <data name="ValidationErrorMissingCurrentPassword" xml:space="preserve">
-    <value>Bitte geben sie das aktuelle Passwort an.</value>
+    <value>Bitte geben Sie das aktuelle Passwort an.</value>
   </data>
   <data name="ValidationErrorMissingEmailAddress" xml:space="preserve">
-    <value>Bitte geben sie eine E-Mail Adresse an.</value>
+    <value>Bitte geben Sie eine E-Mail Adresse an.</value>
+  </data>
+  <data name="ValidationErrorMissingFridgeId" xml:space="preserve">
+    <value>Bitte geben Sie die ID des Kühlschranks ein.</value>
   </data>
   <data name="ValidationErrorMissingFridgeName" xml:space="preserve">
-    <value>Bitte geben sie den Namen des Kühlschranks ein.</value>
+    <value>Bitte geben Sie den Namen des Kühlschranks ein.</value>
   </data>
   <data name="ValidationErrorMissingNewPassword" xml:space="preserve">
-    <value>Bitte geben sie ein das neues Passwort an.</value>
+    <value>Bitte geben Sie ein das neues Passwort an.</value>
   </data>
   <data name="ValidationErrorMissingPassword" xml:space="preserve">
-    <value>Bitte geben sie ein Passwort an.</value>
+    <value>Bitte geben Sie ein Passwort an.</value>
   </data>
   <data name="ValidationErrorMissingShoppinglistName" xml:space="preserve">
-    <value>Bitte geben sie den Namen der Einkaufsliste ein.</value>
+    <value>Bitte geben Sie den Namen der Einkaufsliste ein.</value>
   </data>
   <data name="ValidationErrorMissingUserId" xml:space="preserve">
-    <value>Bitte geben sie eine Benuzer Id an.</value>
+    <value>Bitte geben Sie eine Benuzer Id an.</value>
   </data>
   <data name="ValidationErrorNewPasswordEqualsCurrentPassword" xml:space="preserve">
     <value>Ihr neues Passwort darf nicht identisch zu dem aktuellen sein.</value>
