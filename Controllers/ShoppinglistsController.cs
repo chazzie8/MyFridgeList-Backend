@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Create;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Delete;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Edit;
+using MyFridgeListWebapi.Application.Shoppinglists.Queries.All;
 using MyFridgeListWebapi.Core.Models;
 using MyFridgeListWebapi.Core.Models.Responses.Shoppinglist;
 
@@ -18,6 +20,17 @@ namespace MyFridgeListWebapi.Controllers
         public ShoppinglistsController(IHttpContextAccessor contextAccessor)
             : base(contextAccessor)
         {
+        }
+
+        [HttpGet]
+        public async Task<Response<IEnumerable<ShoppinglistResponse>>> GetFridgesAsync()
+        {
+            var query = new GetShoppinglistsQuery
+            {
+                UserId = UserId
+            };
+
+            return Success(await Mediator.Send(query));
         }
 
         [HttpPost]
