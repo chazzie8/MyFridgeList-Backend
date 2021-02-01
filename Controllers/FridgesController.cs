@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Fridges.Commands.Create;
 using MyFridgeListWebapi.Application.Fridges.Commands.Delete;
 using MyFridgeListWebapi.Application.Fridges.Commands.Edit;
+using MyFridgeListWebapi.Application.Fridges.Queries.All;
 using MyFridgeListWebapi.Core.Models;
 using MyFridgeListWebapi.Core.Models.Responses.Fridge;
 
@@ -18,6 +20,17 @@ namespace MyFridgeListWebapi.Controllers
         public FridgesController(IHttpContextAccessor contextAccessor)
             : base(contextAccessor)
         {
+        }
+
+        [HttpGet]
+        public async Task<Response<IEnumerable<FridgeResponse>>> GetFridgesAsync()
+        {
+            var query = new GetFridgesQuery
+            {
+                UserId = UserId
+            };
+
+            return Success(await Mediator.Send(query));
         }
 
         [HttpPost]
