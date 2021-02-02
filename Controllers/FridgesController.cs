@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Articles.Commands.Create;
 using MyFridgeListWebapi.Application.Articles.Commands.Delete;
+using MyFridgeListWebapi.Application.Articles.Queries.All;
 using MyFridgeListWebapi.Application.Fridges.Commands.Create;
 using MyFridgeListWebapi.Application.Fridges.Commands.Delete;
 using MyFridgeListWebapi.Application.Fridges.Commands.Edit;
@@ -61,6 +62,17 @@ namespace MyFridgeListWebapi.Controllers
             command.FridgeId = fridgeId;
 
             return Success(await Mediator.Send(command));
+        }
+
+        [HttpGet("{fridgeId}/articles")]
+        public async Task<Response<IEnumerable<ArticleResponse>>> GetArticlesAsync(Guid fridgeId)
+        {
+            var query = new GetArticlesQuery
+            {
+                FridgeId = fridgeId
+            };
+
+            return Success(await Mediator.Send(query));
         }
 
         [HttpPost("{fridgeId}/articles")]
