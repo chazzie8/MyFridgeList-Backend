@@ -10,11 +10,11 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Delete
         public DeleteItemCommandValidator(DatabaseContext dbContext)
         {
             RuleFor(request => request.ShoppinglistId)
-                .Must(id => dbContext.Fridges.Any(shoppinglist => shoppinglist.Id == id))
+                .Must(id => dbContext.Shoppinglists.Any(shoppinglist => shoppinglist.Id == id))
                 .WithMessage(request => string.Format(Resources.ValidationErrorShoppinglistWithIdNotExists, request.ShoppinglistId));
 
             RuleFor(request => request.ItemId)
-                .Must(id => dbContext.Articles.Any(item => item.Id == id))
+                .Must(id => dbContext.Items.Any(item => item.Id == id))
                 .WithMessage(request => string.Format(Resources.ValidationErrorItemWithIdNotExists, request.ItemId));
         }
     }
