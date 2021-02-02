@@ -9,6 +9,11 @@ namespace MyFridgeListWebapi.Core.Data.Configurations
         public void Configure(EntityTypeBuilder<Fridge> builder)
         {
             builder.HasKey(entity => entity.Id);
+
+            builder
+                .HasMany(x => x.Articles)
+                .WithOne(x => x.Fridge)
+                .HasForeignKey(x => x.FridgeId);
         }
     }
 }

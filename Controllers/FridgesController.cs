@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyFridgeListWebapi.Application.Articles.Commands.Create;
 using MyFridgeListWebapi.Application.Fridges.Commands.Create;
 using MyFridgeListWebapi.Application.Fridges.Commands.Delete;
 using MyFridgeListWebapi.Application.Fridges.Commands.Edit;
 using MyFridgeListWebapi.Application.Fridges.Queries.All;
 using MyFridgeListWebapi.Core.Models;
+using MyFridgeListWebapi.Core.Models.Responses.Article;
 using MyFridgeListWebapi.Core.Models.Responses.Fridge;
 
 namespace MyFridgeListWebapi.Controllers
@@ -55,7 +57,15 @@ namespace MyFridgeListWebapi.Controllers
         public async Task<Response<EditFridgeResponse>> EditFridgeAsync(Guid fridgeId, [FromBody] EditFridgeCommand command)
         {
             command.UserId = UserId;
-            command.Id = fridgeId;
+            command.FridgeId = fridgeId;
+
+            return Success(await Mediator.Send(command));
+        }
+
+        [HttpPost("{fridgeId}/articles")]
+        public async Task<Response<CreateArticleResponse>> CreateArticleAsync(Guid fridgeId, [FromBody] CreateArticleCommand command)
+        {
+            command.FridgeId = fridgeId;
 
             return Success(await Mediator.Send(command));
         }

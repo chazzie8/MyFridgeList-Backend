@@ -237,6 +237,15 @@
   <data name="ValidationErrorInvalidEmailAddress" xml:space="preserve">
     <value>Die übergebene E-Mail Adresse ist ungültig.</value>
   </data>
+  <data name="ValidationErrorMissingArticleAmount" xml:space="preserve">
+    <value>Bitte geben Sie die Menge ein.</value>
+  </data>
+  <data name="ValidationErrorMissingArticleExpiryDate" xml:space="preserve">
+    <value>Bitte geben Sie ein Mindesthaltbarkeitsdatum an.</value>
+  </data>
+  <data name="ValidationErrorMissingArticleLabel" xml:space="preserve">
+    <value>Bitte geben Sie ein Label an.</value>
+  </data>
   <data name="ValidationErrorMissingConfirmCode" xml:space="preserve">
     <value>Bitte geben Sie einen Bestätigungscode an.</value>
   </data>

@@ -21,7 +21,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Edit
         {
             var fridge = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.Id);
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId);
 
             fridge.Name = request.Name;
 
