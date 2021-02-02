@@ -466,6 +466,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie den Namen des Artikel ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingItemName {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingItemName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie ein das neues Passwort an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingNewPassword {

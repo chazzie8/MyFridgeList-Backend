@@ -252,6 +252,9 @@
   <data name="ValidationErrorMissingFridgeName" xml:space="preserve">
     <value>Bitte geben Sie den Namen des Kühlschranks ein.</value>
   </data>
+  <data name="ValidationErrorMissingItemName" xml:space="preserve">
+    <value>Bitte geben Sie den Namen des Artikel ein.</value>
+  </data>
   <data name="ValidationErrorMissingNewPassword" xml:space="preserve">
     <value>Bitte geben Sie ein das neues Passwort an.</value>
   </data>

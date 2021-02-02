@@ -11,5 +11,6 @@ namespace MyFridgeListWebapi.Core.Data.Entities
         public string Name { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }
+        public IList<Item> Items { get; set; }
     }
 }
