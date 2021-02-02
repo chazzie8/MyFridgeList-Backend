@@ -1,10 +1,7 @@
-﻿using MediatR;
-using MyFridgeListWebapi.Core.Models.Responses.Article;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+using MediatR;
+using MyFridgeListWebapi.Core.Models.Responses.Article;
 
 namespace MyFridgeListWebapi.Application.Articles.Commands.Delete
 {
