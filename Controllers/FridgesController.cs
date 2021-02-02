@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Articles.Commands.Create;
+using MyFridgeListWebapi.Application.Articles.Commands.Delete;
 using MyFridgeListWebapi.Application.Fridges.Commands.Create;
 using MyFridgeListWebapi.Application.Fridges.Commands.Delete;
 using MyFridgeListWebapi.Application.Fridges.Commands.Edit;
@@ -68,6 +69,19 @@ namespace MyFridgeListWebapi.Controllers
             command.FridgeId = fridgeId;
 
             return Success(await Mediator.Send(command));
+        }
+
+        [HttpDelete("{fridgeId}/articles/{articleId}")]
+        public async Task<ActionResult> CreateArticleAsync(Guid fridgeId, Guid articleId)
+        {
+            var command = new DeleteArticleCommand
+            {
+                FridgeId = fridgeId,
+                ArticleId = articleId
+            };
+
+            await Mediator.Send(command);
+            return NoContent();
         }
     }
 }
