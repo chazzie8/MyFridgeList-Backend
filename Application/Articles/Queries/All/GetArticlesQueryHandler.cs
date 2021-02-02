@@ -1,12 +1,11 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using MyFridgeListWebapi.Core.Data.Database;
-using MyFridgeListWebapi.Core.Models.Responses.Article;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using MyFridgeListWebapi.Core.Data.Database;
+using MyFridgeListWebapi.Core.Models.Responses.Article;
 
 namespace MyFridgeListWebapi.Application.Articles.Queries.All
 {
