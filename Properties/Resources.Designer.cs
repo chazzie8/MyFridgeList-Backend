@@ -394,6 +394,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Artikel mit der ID {0} existiert nicht. ähnelt.
+        /// </summary>
+        public static string ValidationErrorArticleWithIdNotExists {
+            get {
+                return ResourceManager.GetString("ValidationErrorArticleWithIdNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ein Kühlschrank mit der ID {0} existiert nicht. ähnelt.
         /// </summary>
         public static string ValidationErrorFridgeWithIdNotExists {

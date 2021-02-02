@@ -228,6 +228,9 @@
   <data name="ResetPasswordSucceededSubject" xml:space="preserve">
     <value>Passwortänderung erfolgreich.</value>
   </data>
+  <data name="ValidationErrorArticleWithIdNotExists" xml:space="preserve">
+    <value>Der Artikel mit der ID {0} existiert nicht.</value>
+  </data>
   <data name="ValidationErrorFridgeWithIdNotExists" xml:space="preserve">
     <value>Ein Kühlschrank mit der ID {0} existiert nicht.</value>
   </data>
