@@ -3,19 +3,19 @@ using FluentValidation;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Properties;
 
-namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
+namespace MyFridgeListWebapi.Application.Items.Commands.Create
 {
-    public sealed class EditShoppinglistCommandValidator : AbstractValidator<EditShoppinglistCommand>
+    public sealed class CreateItemCommandValidator : AbstractValidator<CreateItemCommand>
     {
-        public EditShoppinglistCommandValidator(DatabaseContext dbContext)
+        public CreateItemCommandValidator(DatabaseContext dbContext)
         {
-            RuleFor(request => request.ShoppinglistId)
-                .NotEmpty()
-                .WithMessage(Resources.ValidationErrorMissingShoppinglistId);
-
             RuleFor(request => request.ShoppinglistId)
                 .Must(id => dbContext.Shoppinglists.Any(shoppinglist => shoppinglist.Id == id))
                 .WithMessage(request => string.Format(Resources.ValidationErrorShoppinglistWithIdNotExists, request.ShoppinglistId));
+
+            RuleFor(request => request.Label)
+                .NotEmpty()
+                .WithMessage(Resources.ValidationErrorMissingItemName);
         }
     }
 }

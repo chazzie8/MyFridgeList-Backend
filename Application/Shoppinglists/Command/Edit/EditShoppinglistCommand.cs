@@ -9,7 +9,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
     {
         [JsonIgnore]
         public Guid UserId { get; set; }
-        public Guid Id { get; set; }
+        public Guid ShoppinglistId { get; set; }
         public string Name { get; set; }
     }
 }

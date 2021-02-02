@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyFridgeListWebapi.Core.Data.Database;
 
 namespace MyFridgeListWebapi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210202180005_ItemEntityRelationshipAdded")]
+    partial class ItemEntityRelationshipAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,34 +143,6 @@ namespace MyFridgeListWebapi.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.Article", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ExpiryDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid>("FridgeId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Label")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FridgeId");
-
-                    b.ToTable("Articles");
                 });
 
             modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.Fridge", b =>
@@ -355,15 +329,6 @@ namespace MyFridgeListWebapi.Migrations
                     b.HasOne("MyFridgeListWebapi.Core.Data.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MyFridgeListWebapi.Core.Data.Entities.Article", b =>
-                {
-                    b.HasOne("MyFridgeListWebapi.Core.Data.Entities.Fridge", "Fridge")
-                        .WithMany("Articles")
-                        .HasForeignKey("FridgeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
