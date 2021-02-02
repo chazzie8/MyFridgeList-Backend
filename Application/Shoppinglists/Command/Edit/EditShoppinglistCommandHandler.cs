@@ -20,7 +20,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
         {
             var shoppinglist = await _dbContext.Shoppinglists
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.Id);
+                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId);
 
             shoppinglist.Name = request.Name;
 
