@@ -9,13 +9,13 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Edit
     {
         public EditFridgeCommandValidator(DatabaseContext dbContext)
         {
-            RuleFor(request => request.Id)
+            RuleFor(request => request.FridgeId)
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingFridgeId);
 
-            RuleFor(request => request.Id)
+            RuleFor(request => request.FridgeId)
                 .Must(id => dbContext.Fridges.Any(fridge => fridge.Id == id))
-                .WithMessage(request => string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.Id));
+                .WithMessage(request => string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
         }
     }
 }

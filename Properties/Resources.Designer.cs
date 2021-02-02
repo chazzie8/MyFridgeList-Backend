@@ -421,6 +421,33 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie die Menge ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingArticleAmount {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingArticleAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie ein Mindesthaltbarkeitsdatum an. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingArticleExpiryDate {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingArticleExpiryDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie ein Label an. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingArticleLabel {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingArticleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie einen Bestätigungscode an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingConfirmCode {
