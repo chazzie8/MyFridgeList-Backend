@@ -25,7 +25,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Edit
 
             fridge.Name = request.Name;
 
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return new EditFridgeResponse
             {
