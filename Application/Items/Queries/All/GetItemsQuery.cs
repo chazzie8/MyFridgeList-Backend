@@ -1,9 +1,7 @@
-﻿using MediatR;
-using MyFridgeListWebapi.Core.Models.Responses.Item;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MediatR;
+using MyFridgeListWebapi.Core.Models.Responses.Item;
 
 namespace MyFridgeListWebapi.Application.Items.Queries.All
 {

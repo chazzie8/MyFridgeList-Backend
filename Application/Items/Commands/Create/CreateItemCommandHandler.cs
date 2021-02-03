@@ -1,12 +1,10 @@
-﻿using MediatR;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
 using MyFridgeListWebapi.Core.Models.Responses.Item;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace MyFridgeListWebapi.Application.Items.Commands.Create
 {
