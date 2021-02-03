@@ -24,7 +24,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
 
             shoppinglist.Name = request.Name;
 
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return new EditShoppinglistResponse
             {
