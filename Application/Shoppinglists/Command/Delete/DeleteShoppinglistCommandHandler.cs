@@ -24,7 +24,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Delete
                 .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId);
 
             _dbContext.Shoppinglists.Remove(shoppinglist);
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return new DeleteShoppinglistResponse();
         }

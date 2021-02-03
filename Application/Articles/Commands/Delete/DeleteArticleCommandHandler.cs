@@ -24,7 +24,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Delete
                 .FirstOrDefaultAsync();
 
             _dbContext.Articles.Remove(article);
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return new DeleteArticleResponse();
         }

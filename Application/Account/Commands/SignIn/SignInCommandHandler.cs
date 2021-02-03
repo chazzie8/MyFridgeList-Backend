@@ -5,7 +5,6 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
-using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Account;
 using MyFridgeListWebapi.Core.Services;
 using MyFridgeListWebapi.Extensions;

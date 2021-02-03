@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
 using MyFridgeListWebapi.Core.Models.Responses.Fridge;
@@ -29,7 +27,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Create
             };
 
             _dbContext.Fridges.Add(fridge);
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return new CreateFridgeResponse
             {
