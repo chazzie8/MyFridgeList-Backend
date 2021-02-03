@@ -430,6 +430,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Artikel mit der ID {0} existiert nicht. ähnelt.
+        /// </summary>
+        public static string ValidationErrorItemWithIdNotExists {
+            get {
+                return ResourceManager.GetString("ValidationErrorItemWithIdNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie die Menge ein. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingArticleAmount {

@@ -240,6 +240,9 @@
   <data name="ValidationErrorInvalidEmailAddress" xml:space="preserve">
     <value>Die übergebene E-Mail Adresse ist ungültig.</value>
   </data>
+  <data name="ValidationErrorItemWithIdNotExists" xml:space="preserve">
+    <value>Der Artikel mit der ID {0} existiert nicht.</value>
+  </data>
   <data name="ValidationErrorMissingArticleAmount" xml:space="preserve">
     <value>Bitte geben Sie die Menge ein.</value>
   </data>

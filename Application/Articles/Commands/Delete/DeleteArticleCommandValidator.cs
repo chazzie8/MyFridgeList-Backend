@@ -1,10 +1,7 @@
-﻿using FluentValidation;
+﻿using System.Linq;
+using FluentValidation;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyFridgeListWebapi.Application.Articles.Commands.Delete
 {
