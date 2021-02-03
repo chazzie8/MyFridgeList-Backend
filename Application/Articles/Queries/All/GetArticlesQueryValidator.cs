@@ -5,9 +5,9 @@ using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Articles.Queries.All
 {
-    public sealed class GetArticleQueryValidator : AbstractValidator<GetArticlesQuery>
+    public sealed class GetArticlesQueryValidator : AbstractValidator<GetArticlesQuery>
     {
-        public GetArticleQueryValidator(DatabaseContext dbContext)
+        public GetArticlesQueryValidator(DatabaseContext dbContext)
         {
             RuleFor(request => request.FridgeId)
                 .Must(id => dbContext.Fridges.Any(fridge => fridge.Id == id))
