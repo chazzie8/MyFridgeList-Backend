@@ -46,7 +46,7 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpDelete("{shoppinglistId}")]
-        public async Task<ActionResult> DeleteShoppinglistAsync(Guid shoppinglistId, [FromBody] DeleteShoppinglistCommand command)
+        public async Task<ActionResult> DeleteShoppinglistAsync([FromRoute] Guid shoppinglistId, [FromBody] DeleteShoppinglistCommand command)
         {
             command.UserId = UserId;
             command.ShoppinglistId = shoppinglistId;
@@ -56,7 +56,7 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpPut("{shoppinglistId}")]
-        public async Task<Response<EditShoppinglistResponse>> EditShoppinglistAsync(Guid shoppinglistId, [FromBody] EditShoppinglistCommand command)
+        public async Task<Response<EditShoppinglistResponse>> EditShoppinglistAsync([FromRoute] Guid shoppinglistId, [FromBody] EditShoppinglistCommand command)
         {
             command.UserId = UserId;
             command.ShoppinglistId = shoppinglistId;
@@ -65,10 +65,11 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpGet("{shoppinglistId}/items")]
-        public async Task<Response<IEnumerable<ItemResponse>>> GetItemsAsync(Guid shoppinglistId)
+        public async Task<Response<IEnumerable<ItemResponse>>> GetItemsAsync([FromRoute] Guid shoppinglistId)
         {
             var query = new GetItemsQuery
             {
+                UserId = UserId,
                 ShoppinglistId = shoppinglistId
             };
 
@@ -76,18 +77,20 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpPost("{shoppinglistId}/items")]
-        public async Task<Response<CreateItemResponse>> CreateItemAsync(Guid shoppinglistId, [FromBody] CreateItemCommand command)
+        public async Task<Response<CreateItemResponse>> CreateItemAsync([FromRoute] Guid shoppinglistId, [FromBody] CreateItemCommand command)
         {
+            command.UserId = UserId;
             command.ShoppinglistId = shoppinglistId;
 
             return Success(await Mediator.Send(command));
         }
 
         [HttpDelete("{shoppinglistId}/items/{itemId}")]
-        public async Task<ActionResult> CreateArticleAsync(Guid shoppinglistId, Guid itemId)
+        public async Task<ActionResult> CreateArticleAsync([FromRoute] Guid shoppinglistId, [FromRoute] Guid itemId)
         {
             var command = new DeleteItemCommand
             {
+                UserId = UserId,
                 ShoppinglistId = shoppinglistId,
                 ItemId = itemId
             };

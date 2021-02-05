@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Shoppinglist;
+using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
 {
@@ -20,7 +22,12 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
         {
             var shoppinglist = await _dbContext.Shoppinglists
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId);
+                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId, cancellationToken: cancellationToken);
+
+            if (shoppinglist == null)
+            {
+                throw new NotFoundException(string.Format(Resources.ValidationErrorShoppinglistWithIdNotExists, request.ShoppinglistId));
+            }
 
             shoppinglist.Name = request.Name;
 

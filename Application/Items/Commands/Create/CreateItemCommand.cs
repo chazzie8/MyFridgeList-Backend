@@ -8,6 +8,8 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Create
     public class CreateItemCommand : IRequest<CreateItemResponse>
     {
         [JsonIgnore]
+        public Guid UserId { get; set; }
+        [JsonIgnore]
         public Guid ShoppinglistId { get; set; }
         public string Label { get; set; }
     }

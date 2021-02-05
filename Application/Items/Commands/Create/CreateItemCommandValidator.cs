@@ -1,17 +1,15 @@
-﻿using System.Linq;
-using FluentValidation;
-using MyFridgeListWebapi.Core.Data.Database;
+﻿using FluentValidation;
 using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Items.Commands.Create
 {
     public sealed class CreateItemCommandValidator : AbstractValidator<CreateItemCommand>
     {
-        public CreateItemCommandValidator(DatabaseContext dbContext)
+        public CreateItemCommandValidator()
         {
             RuleFor(request => request.ShoppinglistId)
-                .Must(id => dbContext.Shoppinglists.Any(shoppinglist => shoppinglist.Id == id))
-                .WithMessage(request => string.Format(Resources.ValidationErrorShoppinglistWithIdNotExists, request.ShoppinglistId));
+                .NotEmpty()
+                .WithMessage(Resources.ValidationErrorMissingShoppinglistId);
 
             RuleFor(request => request.Label)
                 .NotEmpty()

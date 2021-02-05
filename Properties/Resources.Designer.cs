@@ -457,6 +457,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie die ID des Article ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingArticleId {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingArticleId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie ein Label an. ähnelt.
         /// </summary>
         public static string ValidationErrorMissingArticleLabel {
@@ -507,6 +516,15 @@ namespace MyFridgeListWebapi.Properties {
         public static string ValidationErrorMissingFridgeName {
             get {
                 return ResourceManager.GetString("ValidationErrorMissingFridgeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben Sie die ID des Article ein. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingItemId {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingItemId", resourceCulture);
             }
         }
         

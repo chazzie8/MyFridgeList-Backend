@@ -7,6 +7,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Edit
 {
     public sealed class EditArticleCommand : IRequest<EditArticleResponse>
     {
+        public Guid UserId { get; set; }
         [JsonIgnore]
         public Guid FridgeId { get; set; }
         [JsonIgnore]

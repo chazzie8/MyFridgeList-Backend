@@ -1,17 +1,15 @@
-﻿using System.Linq;
-using FluentValidation;
-using MyFridgeListWebapi.Core.Data.Database;
+﻿using FluentValidation;
 using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Articles.Commands.Create
 {
     public class CreateArticleCommandValidator : AbstractValidator<CreateArticleCommand>
     {
-        public CreateArticleCommandValidator(DatabaseContext dbContext)
+        public CreateArticleCommandValidator()
         {
             RuleFor(request => request.FridgeId)
-                .Must(id => dbContext.Fridges.Any(fridge => fridge.Id == id))
-                .WithMessage(request => string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
+                .NotEmpty()
+                .WithMessage(Resources.ValidationErrorMissingFridgeId);
 
             RuleFor(request => request.Label)
                 .NotEmpty()
@@ -21,7 +19,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Create
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingArticleAmount);
 
-            RuleFor(request => request.ExpiryDate)
+            RuleFor(request => request.Expirydate)
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingArticleExpiryDate);
         }

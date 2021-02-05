@@ -32,7 +32,7 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignUp
                 ModifiedAt = DateTime.Now
             };
 
-            var result = await _userManager.CreateAsync(user as User, password);
+            var result = await _userManager.CreateAsync(user, password);
 
             return new SignUpResponse(result.Succeeded, result.Errors.ToValidationResults());
         }

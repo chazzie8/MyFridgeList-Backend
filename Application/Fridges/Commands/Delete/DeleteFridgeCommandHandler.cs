@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Fridge;
+using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Fridges.Commands.Delete
 {
@@ -21,7 +23,12 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Delete
         {
             var fridge = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.FridgeId);
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+
+            //if (fridge == null)
+            //{
+            //    throw new NotFoundException(string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
+            //}
 
             _dbContext.Fridges.Remove(fridge);
             await _dbContext.SaveChangesAsync(cancellationToken);

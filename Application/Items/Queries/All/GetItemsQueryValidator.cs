@@ -1,17 +1,15 @@
-﻿using System.Linq;
-using FluentValidation;
-using MyFridgeListWebapi.Core.Data.Database;
+﻿using FluentValidation;
 using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Items.Queries.All
 {
     public sealed class GetItemsQueryValidator : AbstractValidator<GetItemsQuery>
     {
-        public GetItemsQueryValidator(DatabaseContext dbContext)
+        public GetItemsQueryValidator()
         {
             RuleFor(request => request.ShoppinglistId)
-                .Must(id => dbContext.Shoppinglists.Any(shoppinglist => shoppinglist.Id == id))
-                .WithMessage(request => string.Format(Resources.ValidationErrorShoppinglistWithIdNotExists, request.ShoppinglistId));
+                .NotEmpty()
+                .WithMessage(request => string.Format(Resources.ValidationErrorMissingShoppinglistId));
         }
     }
 }

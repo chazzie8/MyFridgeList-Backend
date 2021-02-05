@@ -11,16 +11,16 @@ namespace MyFridgeListWebapi.Application.Fridges.Queries.All
 {
     public sealed class GetFridgesQueryHandler : IRequestHandler<GetFridgesQuery, IEnumerable<FridgeResponse>>
     {
-        private readonly DatabaseContext _databaseContext;
+        private readonly DatabaseContext _dbContext;
 
         public GetFridgesQueryHandler(DatabaseContext databaseContext)
         {
-            _databaseContext = databaseContext;
+            _dbContext = databaseContext;
         }
 
         public async Task<IEnumerable<FridgeResponse>> Handle(GetFridgesQuery request, CancellationToken cancellationToken)
         {
-            var fridges = await _databaseContext.Fridges
+            var fridges = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
                 .Select(x => new FridgeResponse
                 {

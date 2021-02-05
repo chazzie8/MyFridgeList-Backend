@@ -13,8 +13,10 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Create
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingFridgeName);
 
-            RuleFor(request => request.Name)
-                .Must(name => !dbContext.Fridges.Any(fridge => fridge.Name == name))
+            RuleFor(request => request)
+                .Must(request => !dbContext.Fridges
+                    .Where(x => x.UserId == request.UserId)
+                    .Any(fridge => fridge.Name == request.Name))
                 .WithMessage(request => string.Format(Resources.ValidationErrorFridgeWithNameStillExists, request.Name));
         }
     }

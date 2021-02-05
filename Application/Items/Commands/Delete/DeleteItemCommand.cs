@@ -8,6 +8,8 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Delete
     public sealed class DeleteItemCommand : IRequest<DeleteItemResponse>
     {
         [JsonIgnore]
+        public Guid UserId { get; set; }
+        [JsonIgnore]
         public Guid ShoppinglistId { get; set; }
         [JsonIgnore]
         public Guid ItemId { get; set; }

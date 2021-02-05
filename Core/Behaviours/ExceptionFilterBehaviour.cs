@@ -28,6 +28,11 @@ namespace MyFridgeListWebapi.Core.Behaviours
                 HandleUnauthorizedException(context, context.Exception as UnauthorizedException);
                 return;
             }
+            if (context.Exception is NotFoundException)
+            {
+                HandleNotFoundException(context, context.Exception as NotFoundException);
+                return;
+            }
             HandleException(context, context.Exception);
         }
         private void HandleValidationException(ExceptionContext context, ValidationException exception)
@@ -71,6 +76,21 @@ namespace MyFridgeListWebapi.Core.Behaviours
                 {
                     Code = StatusCodes.Status401Unauthorized,
                     Message = !string.IsNullOrEmpty(exception.Message) ? exception.Message : Resources.ErrorHttp401
+                },
+                ValidationErrors = new List<ValidationError>()
+            });
+        }
+        private void HandleNotFoundException(ExceptionContext context, NotFoundException exception)
+        {
+            context.HttpContext.Response.ContentType = MediaTypeNames.Application.Json;
+            context.HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+            context.Result = new JsonResult(new Response<object>
+            {
+                Success = false,
+                Error = new Error
+                {
+                    Code = StatusCodes.Status404NotFound,
+                    Message = !string.IsNullOrEmpty(exception.Message) ? exception.Message : Resources.ErrorHttp404
                 },
                 ValidationErrors = new List<ValidationError>()
             });

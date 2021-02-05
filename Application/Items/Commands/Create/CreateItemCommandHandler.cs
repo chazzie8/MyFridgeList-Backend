@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Item;
+using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Items.Commands.Create
 {
@@ -18,6 +22,15 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Create
         }
         public async Task<CreateItemResponse> Handle(CreateItemCommand request, CancellationToken cancellationToken)
         {
+            var shoppinglist = await _dbContext.Shoppinglists
+                .Where(x => x.UserId == request.UserId)
+                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId, cancellationToken: cancellationToken);
+
+            if (shoppinglist == null)
+            {
+                throw new NotFoundException(string.Format(Resources.ValidationErrorShoppinglistWithIdNotExists, request.ShoppinglistId));
+            }
+
             var item = new Item
             {
                 Id = Guid.NewGuid(),

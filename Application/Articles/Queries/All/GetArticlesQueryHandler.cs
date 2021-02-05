@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Article;
+using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Articles.Queries.All
 {
@@ -19,6 +21,15 @@ namespace MyFridgeListWebapi.Application.Articles.Queries.All
         }
         public async Task<IEnumerable<ArticleResponse>> Handle(GetArticlesQuery request, CancellationToken cancellationToken)
         {
+            var fridge = await _databaseContext.Fridges
+                .Where(x => x.UserId == request.UserId)
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+
+            if (fridge == null)
+            {
+                throw new NotFoundException(string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
+            }
+
             var articles = await _databaseContext.Articles
                 .Where(x => x.FridgeId == request.FridgeId)
                 .Select(x => new ArticleResponse

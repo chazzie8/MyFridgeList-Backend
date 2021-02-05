@@ -13,8 +13,10 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Create
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingShoppinglistName);
 
-            RuleFor(request => request.Name)
-                .Must(name => !dbContext.Shoppinglists.Any(shoppinglist => shoppinglist.Name == name))
+            RuleFor(request => request)
+                .Must(request => !dbContext.Shoppinglists
+                    .Where(x => x.UserId == request.UserId)
+                    .Any(shoppinglist => shoppinglist.Name == request.Name))
                 .WithMessage(request => string.Format(Resources.ValidationErrorShoppinglistWithNameStillExists, request.Name));
         }
     }

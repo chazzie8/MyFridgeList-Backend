@@ -249,6 +249,9 @@
   <data name="ValidationErrorMissingArticleExpiryDate" xml:space="preserve">
     <value>Bitte geben Sie ein Mindesthaltbarkeitsdatum an.</value>
   </data>
+  <data name="ValidationErrorMissingArticleId" xml:space="preserve">
+    <value>Bitte geben Sie die ID des Article ein.</value>
+  </data>
   <data name="ValidationErrorMissingArticleLabel" xml:space="preserve">
     <value>Bitte geben Sie ein Label an.</value>
   </data>
@@ -266,6 +269,9 @@
   </data>
   <data name="ValidationErrorMissingFridgeName" xml:space="preserve">
     <value>Bitte geben Sie den Namen des Kühlschranks ein.</value>
+  </data>
+  <data name="ValidationErrorMissingItemId" xml:space="preserve">
+    <value>Bitte geben Sie die ID des Article ein.</value>
   </data>
   <data name="ValidationErrorMissingItemName" xml:space="preserve">
     <value>Bitte geben Sie den Namen des Artikel ein.</value>

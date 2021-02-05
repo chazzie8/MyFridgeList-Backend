@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Article;
+using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Articles.Commands.Create
 {
@@ -18,13 +22,22 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Create
         }
         public async Task<CreateArticleResponse> Handle(CreateArticleCommand request, CancellationToken cancellationToken)
         {
+            var fridge = await _dbContext.Fridges
+                .Where(x => x.UserId == request.UserId)
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+
+            if (fridge == null)
+            {
+                throw new NotFoundException(string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
+            }
+
             var article = new Article
             {
                 Id = Guid.NewGuid(),
                 FridgeId = request.FridgeId,
                 Label = request.Label,
                 Amount = request.Amount,
-                ExpiryDate = request.ExpiryDate,
+                ExpiryDate = request.Expirydate,
                 Timestamp = DateTime.Now
             };
 
@@ -36,7 +49,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Create
                 Id = article.Id,
                 Label = article.Label,
                 Amount = article.Amount,
-                ExpiryDate = article.ExpiryDate,
+                Expirydate = article.ExpiryDate,
                 Timestamp = article.Timestamp,
             };
         }

@@ -1,21 +1,19 @@
-﻿using System.Linq;
-using FluentValidation;
-using MyFridgeListWebapi.Core.Data.Database;
+﻿using FluentValidation;
 using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Articles.Commands.Delete
 {
     public sealed class DeleteArticleCommandValidator : AbstractValidator<DeleteArticleCommand>
     {
-        public DeleteArticleCommandValidator(DatabaseContext dbContext)
+        public DeleteArticleCommandValidator()
         {
             RuleFor(request => request.FridgeId)
-                .Must(id => dbContext.Fridges.Any(fridge => fridge.Id == id))
-                .WithMessage(request => string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
+                .NotEmpty()
+                .WithMessage(request => string.Format(Resources.ValidationErrorMissingFridgeId));
 
             RuleFor(request => request.ArticleId)
-                .Must(id => dbContext.Articles.Any(article => article.Id == id))
-                .WithMessage(request => string.Format(Resources.ValidationErrorArticleWithIdNotExists, request.ArticleId));
+                .NotEmpty()
+                .WithMessage(request => string.Format(Resources.ValidationErrorMissingArticleId));
         }
     }
 }
