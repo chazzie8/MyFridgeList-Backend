@@ -26,7 +26,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Create
             };
 
             _dbContext.Shoppinglists.Add(shoppinglist);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new CreateShoppinglistResponse
             {

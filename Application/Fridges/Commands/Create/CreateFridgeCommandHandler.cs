@@ -27,7 +27,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Create
             };
 
             _dbContext.Fridges.Add(fridge);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new CreateFridgeResponse
             {

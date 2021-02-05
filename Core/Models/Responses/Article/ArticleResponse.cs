@@ -7,7 +7,7 @@ namespace MyFridgeListWebapi.Core.Models.Responses.Article
         public Guid Id { get; set; }
         public string Label { get; set; }
         public int Amount { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public DateTime Expirydate { get; set; }
         public DateTime Timestamp { get; set; }
     }
 }

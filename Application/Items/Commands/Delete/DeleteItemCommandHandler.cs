@@ -23,7 +23,7 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Delete
         {
             var shoppinglist = await _dbContext.Shoppinglists
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId);
 
             if (shoppinglist == null)
             {
@@ -32,7 +32,7 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Delete
 
             var item = await _dbContext.Items
                 .Where(x => x.Id == request.ItemId)
-                .FirstOrDefaultAsync(cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync();
 
             if (item == null)
             {
@@ -40,7 +40,7 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Delete
             }
 
             _dbContext.Items.Remove(item);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new DeleteItemResponse();
         }

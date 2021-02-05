@@ -46,13 +46,15 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpDelete("{shoppinglistId}")]
-        public async Task<ActionResult> DeleteShoppinglistAsync([FromRoute] Guid shoppinglistId, [FromBody] DeleteShoppinglistCommand command)
+        public async Task<Response<DeleteShoppinglistResponse>> DeleteShoppinglistAsync([FromRoute] Guid shoppinglistId)
         {
-            command.UserId = UserId;
-            command.ShoppinglistId = shoppinglistId;
+            var command = new DeleteShoppinglistCommand
+            {
+                UserId = UserId,
+                ShoppinglistId = shoppinglistId,
+            };
 
-            await Mediator.Send(command);
-            return NoContent();
+            return Success(await Mediator.Send(command));
         }
 
         [HttpPut("{shoppinglistId}")]

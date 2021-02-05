@@ -23,7 +23,7 @@ namespace MyFridgeListWebapi.Application.Articles.Queries.All
         {
             var fridge = await _databaseContext.Fridges
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId);
 
             if (fridge == null)
             {
@@ -37,10 +37,10 @@ namespace MyFridgeListWebapi.Application.Articles.Queries.All
                     Id = x.Id,
                     Label = x.Label,
                     Amount = x.Amount,
-                    ExpiryDate = x.ExpiryDate,
+                    Expirydate = x.ExpiryDate,
                     Timestamp = x.Timestamp,
                 })
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
 
             return articles;
         }

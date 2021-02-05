@@ -60,17 +60,19 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpDelete("{fridgeId}")]
-        public async Task<ActionResult> DeleteFridgeAsync(Guid fridgeId, [FromBody] DeleteFridgeCommand command)
+        public async Task<Response<DeleteFridgeResponse>> DeleteFridgeAsync([FromRoute] Guid fridgeId)
         {
-            command.UserId = UserId;
-            command.FridgeId = fridgeId;
+            var command = new DeleteFridgeCommand
+            {
+                UserId = UserId,
+                FridgeId = fridgeId
+            };
 
-            await Mediator.Send(command);
-            return NoContent();
+            return Success(await Mediator.Send(command));
         }
 
         [HttpPut("{fridgeId}")]
-        public async Task<Response<EditFridgeResponse>> EditFridgeAsync(Guid fridgeId, [FromBody] EditFridgeCommand command)
+        public async Task<Response<EditFridgeResponse>> EditFridgeAsync([FromRoute] Guid fridgeId, [FromBody] EditFridgeCommand command)
         {
             command.UserId = UserId;
             command.FridgeId = fridgeId;
@@ -102,6 +104,7 @@ namespace MyFridgeListWebapi.Controllers
         [HttpPut("{fridgeId}/articles/{articleId}")]
         public async Task<Response<EditArticleResponse>> EditArticleAsync([FromRoute] Guid fridgeId, [FromRoute] Guid articleId, [FromBody] EditArticleCommand command)
         {
+            command.UserId = UserId;
             command.FridgeId = fridgeId;
             command.ArticleId = articleId;
 

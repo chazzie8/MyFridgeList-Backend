@@ -22,7 +22,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Queries.DashboardArticles
             var fridgeIds = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
                 .Select(x => x.Id)
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
 
             var articles = await _dbContext.Articles
                 .Where(x => fridgeIds.Contains(x.FridgeId))
@@ -34,7 +34,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Queries.DashboardArticles
                     Amount = x.Amount,
                     ExpiryDate = x.ExpiryDate,
                 })
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
 
             return articles;
         }

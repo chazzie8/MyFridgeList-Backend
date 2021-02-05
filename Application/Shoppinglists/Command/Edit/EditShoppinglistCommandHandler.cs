@@ -22,7 +22,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
         {
             var shoppinglist = await _dbContext.Shoppinglists
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId);
 
             if (shoppinglist == null)
             {
@@ -31,7 +31,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Edit
 
             shoppinglist.Name = request.Name;
 
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new EditShoppinglistResponse
             {

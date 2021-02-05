@@ -23,15 +23,15 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Delete
         {
             var fridge = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId);
 
-            //if (fridge == null)
-            //{
-            //    throw new NotFoundException(string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
-            //}
+            if (fridge == null)
+            {
+                throw new NotFoundException(string.Format(Resources.ValidationErrorFridgeWithIdNotExists, request.FridgeId));
+            }
 
             _dbContext.Fridges.Remove(fridge);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new DeleteFridgeResponse();
         }

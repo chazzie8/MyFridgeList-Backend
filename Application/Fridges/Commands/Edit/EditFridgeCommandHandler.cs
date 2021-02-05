@@ -23,7 +23,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Edit
         {
             var fridge = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId);
 
             if (fridge == null)
             {
@@ -32,7 +32,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Commands.Edit
 
             fridge.Name = request.Name;
 
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new EditFridgeResponse
             {

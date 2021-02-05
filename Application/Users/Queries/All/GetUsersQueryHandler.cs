@@ -27,7 +27,7 @@ namespace MyFridgeListWebapi.Application.Users.Queries.All
                     Email = user.Email,
                     FirstLoginAt = user.FirstLoginAt,
                 })
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
 
             return userDetails;
         }

@@ -27,7 +27,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Queries.All
                     Id = x.Id,
                     Name = x.Name,
                 })
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
 
             return fridges;
         }

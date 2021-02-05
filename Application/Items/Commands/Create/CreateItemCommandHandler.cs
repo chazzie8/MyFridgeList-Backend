@@ -24,7 +24,7 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Create
         {
             var shoppinglist = await _dbContext.Shoppinglists
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.ShoppinglistId);
 
             if (shoppinglist == null)
             {
@@ -40,7 +40,7 @@ namespace MyFridgeListWebapi.Application.Items.Commands.Create
             };
 
             _dbContext.Items.Add(item);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new CreateItemResponse
             {

@@ -23,7 +23,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Edit
         {
             var fridge = await _dbContext.Fridges
                 .Where(x => x.UserId == request.UserId)
-                .FirstOrDefaultAsync(x => x.Id == request.FridgeId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.FridgeId);
 
             if (fridge == null)
             {
@@ -32,7 +32,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Edit
 
             var article = await _dbContext.Articles
                 .Where(x => x.FridgeId == request.FridgeId)
-                .FirstOrDefaultAsync(x => x.Id == request.ArticleId, cancellationToken: cancellationToken);
+                .FirstOrDefaultAsync(x => x.Id == request.ArticleId);
 
             if (article == null)
             {
@@ -43,14 +43,14 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Edit
             article.Amount = request.Amount;
             article.ExpiryDate = request.ExpiryDate;
 
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
 
             return new EditArticleResponse
             {
                 Id = article.Id,
                 Label = article.Label,
                 Amount = article.Amount,
-                ExpiryDate = article.ExpiryDate,
+                Expirydate = article.ExpiryDate,
                 Timestamp = article.Timestamp
             };
         }

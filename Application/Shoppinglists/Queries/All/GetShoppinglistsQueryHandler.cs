@@ -27,7 +27,7 @@ namespace MyFridgeListWebapi.Application.Shoppinglists.Queries.All
                     Id = x.Id,
                     Name = x.Name,
                 })
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
 
             return shoppinglists;
         }
