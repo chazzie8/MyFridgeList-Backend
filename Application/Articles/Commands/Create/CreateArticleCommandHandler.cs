@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using MyFridgeListWebapi.Application.Articles.Queries.All;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
 using MyFridgeListWebapi.Core.Exceptions;
@@ -38,7 +39,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Create
                 Label = request.Label,
                 Amount = request.Amount,
                 ExpiryDate = request.Expirydate,
-                Timestamp = DateTime.Now
+                Timestamp = DateTime.Now,
             };
 
             _dbContext.Articles.Add(article);
@@ -51,6 +52,7 @@ namespace MyFridgeListWebapi.Application.Articles.Commands.Create
                 Amount = article.Amount,
                 Expirydate = article.ExpiryDate,
                 Timestamp = article.Timestamp,
+                Expirystatus = ExpiryCalculation.GetStatus(article.ExpiryDate),
             };
         }
     }
