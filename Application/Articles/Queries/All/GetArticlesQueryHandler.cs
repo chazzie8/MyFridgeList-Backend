@@ -39,6 +39,7 @@ namespace MyFridgeListWebapi.Application.Articles.Queries.All
                     Amount = x.Amount,
                     Expirydate = x.ExpiryDate,
                     Timestamp = x.Timestamp,
+                    Expirystatus = ExpiryCalculation.GetStatus(x.ExpiryDate),
                 })
                 .ToListAsync();
 

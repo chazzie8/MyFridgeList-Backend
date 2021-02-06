@@ -12,5 +12,6 @@ namespace MyFridgeListWebapi.Core.Models.Responses.DashboardArticle
         public string ArticleName { get; set; }
         public DateTime ExpiryDate { get; set; }
         public int Amount { get; set; }
+        public string Expirystatus { get; set; }
     }
 }
