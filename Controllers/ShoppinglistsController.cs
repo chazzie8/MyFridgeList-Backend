@@ -10,6 +10,7 @@ using MyFridgeListWebapi.Application.Items.Queries.All;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Create;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Delete;
 using MyFridgeListWebapi.Application.Shoppinglists.Command.Edit;
+using MyFridgeListWebapi.Application.Shoppinglists.Command.Update;
 using MyFridgeListWebapi.Application.Shoppinglists.Queries.All;
 using MyFridgeListWebapi.Core.Models;
 using MyFridgeListWebapi.Core.Models.Responses.Item;
@@ -99,6 +100,15 @@ namespace MyFridgeListWebapi.Controllers
 
             await Mediator.Send(command);
             return NoContent();
+        }
+
+        [HttpPost("{shoppinglistId}/update")]
+        public async Task<Response<IEnumerable<ItemResponse>>> UpdateItemsAsync([FromRoute] Guid shoppinglistId, [FromBody] UpdateItemsCommand command)
+        {
+            command.UserId = UserId;
+            command.ShoppinglistId = shoppinglistId;
+
+            return Success(await Mediator.Send(command));
         }
     }
 }
