@@ -8,6 +8,7 @@ using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Article;
 using MyFridgeListWebapi.Properties;
+using MyFridgeListWebapi.Utils;
 
 namespace MyFridgeListWebapi.Application.Articles.Queries.All
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyFridgeListWebapi.Application.Articles.Queries.All
+namespace MyFridgeListWebapi.Utils
 {
     public static class ExpiryCalculation
     {

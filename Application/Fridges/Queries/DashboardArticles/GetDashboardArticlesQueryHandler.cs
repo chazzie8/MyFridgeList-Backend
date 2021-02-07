@@ -4,9 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using MyFridgeListWebapi.Application.Articles.Queries.All;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Models.Responses.DashboardArticle;
+using MyFridgeListWebapi.Utils;
 
 namespace MyFridgeListWebapi.Application.Fridges.Queries.DashboardArticles
 {
