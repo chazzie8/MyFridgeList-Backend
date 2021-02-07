@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using MyFridgeListWebapi.Properties;
 
-namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Update
+namespace MyFridgeListWebapi.Application.Items.Command.Update
 {
     public sealed class UpdateItemsCommandValidator : AbstractValidator<UpdateItemsCommand>
     {

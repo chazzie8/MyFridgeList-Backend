@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MyFridgeListWebapi.Core.Data.Database;
-using MyFridgeListWebapi.Core.Data.Entities;
 using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Item;
 using MyFridgeListWebapi.Properties;
 
-namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Update
+namespace MyFridgeListWebapi.Application.Items.Command.Update
 {
     public sealed class UpdateItemsCommandHandler : IRequestHandler<UpdateItemsCommand, IEnumerable<ItemResponse>>
     {

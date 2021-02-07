@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using MediatR;
-using MyFridgeListWebapi.Core.Data.Entities;
 using MyFridgeListWebapi.Core.Models.Responses.Item;
 
-namespace MyFridgeListWebapi.Application.Shoppinglists.Command.Update
+namespace MyFridgeListWebapi.Application.Items.Command.Update
 {
     public sealed class UpdateItemsCommand : IRequest<IEnumerable<ItemResponse>>
     {
