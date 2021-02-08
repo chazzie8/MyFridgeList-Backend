@@ -33,7 +33,7 @@ namespace MyFridgeListWebapi.Application.Fridges.Queries.DashboardArticles
                     FridgeId = x.FridgeId,
                     ArticleName = x.Label,
                     Amount = x.Amount,
-                    ExpiryDate = x.ExpiryDate,
+                    Expirydate = x.ExpiryDate,
                     Expirystatus = ExpiryCalculation.GetStatus(x.ExpiryDate),
                 })
                 .ToListAsync();
