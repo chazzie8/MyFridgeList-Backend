@@ -48,7 +48,7 @@ namespace MyFridgeListWebapi.Controllers
             return Success(await Mediator.Send(command));
         }
 
-        [HttpGet("dashboard-items")]
+        [HttpGet("dashboard-articles")]
         public async Task<Response<IEnumerable<DashboardArticleResponse>>> GetDashboardArticlesAsync()
         {
             var query = new GetDashboardArticlesQuery
