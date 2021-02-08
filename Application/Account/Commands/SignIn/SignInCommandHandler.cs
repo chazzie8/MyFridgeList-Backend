@@ -5,9 +5,11 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Data.Entities;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models.Responses.Account;
 using MyFridgeListWebapi.Core.Services;
 using MyFridgeListWebapi.Extensions;
+using MyFridgeListWebapi.Properties;
 
 namespace MyFridgeListWebapi.Application.Account.Commands.SignIn
 {
@@ -36,6 +38,11 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignIn
             var password = Uri.UnescapeDataString(request.Password);
             var user = await _userManager.FindByEmailAsync(email);
             var result = await _signInManager.PasswordSignInAsync(user.UserName, password, false, false);
+
+            if(result.Succeeded == false)
+            {
+                throw new UnauthorizedException(Resources.ExceptionErrorWrongEmailPassword);
+            }
 
             await UpdateUserAsync(result, user);
 

@@ -112,7 +112,7 @@ namespace MyFridgeListWebapi.Controllers
         }
 
         [HttpDelete("{fridgeId}/articles/{articleId}")]
-        public async Task<ActionResult> DeleteArticleAsync([FromRoute] Guid fridgeId, [FromRoute] Guid articleId)
+        public async Task<Response<DeleteArticleResponse>> DeleteArticleAsync([FromRoute] Guid fridgeId, [FromRoute] Guid articleId)
         {
             var command = new DeleteArticleCommand
             {
@@ -121,8 +121,7 @@ namespace MyFridgeListWebapi.Controllers
                 ArticleId = articleId
             };
 
-            await Mediator.Send(command);
-            return NoContent();
+            return Success(await Mediator.Send(command));
         }
     }
 }

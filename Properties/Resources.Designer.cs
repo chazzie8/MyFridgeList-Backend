@@ -133,6 +133,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die E-Mail oder Password sind falsch. ähnelt.
+        /// </summary>
+        public static string ExceptionErrorWrongEmailPassword {
+            get {
+                return ResourceManager.GetString("ExceptionErrorWrongEmailPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Das ändern des Passworts war nicht erfolgreich. ähnelt.
         /// </summary>
         public static string IdentityErrorChangePasswordFails {

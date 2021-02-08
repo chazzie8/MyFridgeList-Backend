@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFridgeListWebapi.Application.Account.Commands.SignIn;
 using MyFridgeListWebapi.Application.Account.Commands.SignUp;
+using MyFridgeListWebapi.Core.Exceptions;
 using MyFridgeListWebapi.Core.Models;
 using MyFridgeListWebapi.Core.Models.Responses;
 using MyFridgeListWebapi.Core.Models.Responses.Account;

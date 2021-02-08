@@ -141,6 +141,9 @@
   <data name="ErrorHttp500" xml:space="preserve">
     <value>Internal Server Error.</value>
   </data>
+  <data name="ExceptionErrorWrongEmailPassword" xml:space="preserve">
+    <value>E-Mail oder Password sind falsch.</value>
+  </data>
   <data name="IdentityErrorChangePasswordFails" xml:space="preserve">
     <value>Das ändern des Passworts war nicht erfolgreich.</value>
   </data>
