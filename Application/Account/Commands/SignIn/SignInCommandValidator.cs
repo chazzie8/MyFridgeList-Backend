@@ -15,33 +15,6 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignIn
             AppConfiguration appConfiguration,
             DatabaseContext databaseContext)
         {
-            RuleFor(x => x.Email)
-                .NotEmpty()
-                .WithMessage(Resources.ValidationErrorMissingEmailAddress);
-
-            RuleFor(x => x.Email)
-                .Must(email =>
-                {
-                    try
-                    {
-                        var mailAddress = new MailAddress(Uri.UnescapeDataString(email));
-
-                        return true;
-                    }
-                    catch (Exception)
-                    {
-                        return false;
-                    }
-                })
-                .WithMessage(Resources.ValidationErrorInvalidEmailAddress);
-
-            RuleFor(request => request)
-                .Must(request => databaseContext.Users.Any(user => user.Email == request.Email))
-                .OnAnyFailure(request =>
-                {
-                    throw new UnauthorizedException(string.Format(Resources.ValidationErrorUserNotFoundByEmail, request.Email));
-                });
-
             RuleFor(x => x.Password)
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingPassword);

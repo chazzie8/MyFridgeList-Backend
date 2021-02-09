@@ -592,6 +592,15 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte geben sie einen Username an. ähnelt.
+        /// </summary>
+        public static string ValidationErrorMissingUsername {
+            get {
+                return ResourceManager.GetString("ValidationErrorMissingUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Ihr neues Passwort darf nicht identisch zu dem aktuellen sein. ähnelt.
         /// </summary>
         public static string ValidationErrorNewPasswordEqualsCurrentPassword {

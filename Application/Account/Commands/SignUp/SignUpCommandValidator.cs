@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 using FluentValidation;
+using MyFridgeListWebapi.Core.Data.Database;
 using MyFridgeListWebapi.Core.Environment;
 using MyFridgeListWebapi.Properties;
 
@@ -8,8 +9,12 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignUp
 {
     public sealed class SignUpCommandValidator : AbstractValidator<SignUpCommand>
     {
-        public SignUpCommandValidator(AppConfiguration appConfiguration)
+        public SignUpCommandValidator(AppConfiguration appConfiguration, DatabaseContext dbContext)
         {
+            RuleFor(request => request.Username)
+                .NotEmpty()
+                .WithMessage(Resources.ValidationErrorMissingUsername);
+
             RuleFor(request => request.Email)
                 .NotEmpty()
                 .WithMessage(Resources.ValidationErrorMissingEmailAddress);

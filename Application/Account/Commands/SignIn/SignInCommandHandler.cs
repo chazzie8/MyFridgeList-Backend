@@ -34,9 +34,23 @@ namespace MyFridgeListWebapi.Application.Account.Commands.SignIn
 
         public async Task<SignInResponse> Handle(SignInCommand request, CancellationToken cancellationToken)
         {
-            var email = Uri.UnescapeDataString(request.Email);
+            var user = new User();
+
+            if (request.Email != string.Empty)
+            {
+                user = await _userManager.FindByEmailAsync(Uri.UnescapeDataString(request.Email));
+            }
+            else
+            {
+                user = await _userManager.FindByNameAsync(request.Username);
+            }
+
+            if(user == null)
+            {
+                throw new UnauthorizedException(Resources.ExceptionErrorWrongEmailPassword);
+            }
+
             var password = Uri.UnescapeDataString(request.Password);
-            var user = await _userManager.FindByEmailAsync(email);
             var result = await _signInManager.PasswordSignInAsync(user.UserName, password, false, false);
 
             if(result.Succeeded == false)

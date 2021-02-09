@@ -294,6 +294,9 @@
   <data name="ValidationErrorMissingUserId" xml:space="preserve">
     <value>Bitte geben Sie eine Benuzer Id an.</value>
   </data>
+  <data name="ValidationErrorMissingUsername" xml:space="preserve">
+    <value>Bitte geben sie einen Username an.</value>
+  </data>
   <data name="ValidationErrorNewPasswordEqualsCurrentPassword" xml:space="preserve">
     <value>Ihr neues Passwort darf nicht identisch zu dem aktuellen sein.</value>
   </data>
