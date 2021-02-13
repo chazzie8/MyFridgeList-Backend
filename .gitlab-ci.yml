@@ -1,0 +1,9 @@
+deploy_develop:
+  stage: deploy
+  script:
+    - ssh -p 9012 gitlab@secure.seracom.de 'sudo service supervisor stop'
+    - dotnet publish -o "$CI_PROJECT_DIR/build-output/"
+    - rsync -e "ssh -p 9012" -az --delete --chmod=777 build-output/ gitlab@secure.seracom.de:/var/www/myfridgelist-backend.seracom.de/
+    - ssh -p 9012 gitlab@secure.seracom.de 'sudo service supervisor start'
+  only:
+    - master
