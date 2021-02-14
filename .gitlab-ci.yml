@@ -6,4 +6,4 @@ deploy_develop:
     - rsync -e "ssh -p 9012" -az --delete --chmod=777 build-output/ gitlab@secure.seracom.de:/var/www/myfridgelist-backend.seracom.de/
     - ssh -p 9012 gitlab@secure.seracom.de 'sudo service supervisor start'
   only:
-    - master
+    - seracom
