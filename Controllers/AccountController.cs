@@ -38,7 +38,11 @@ namespace MyFridgeListWebapi.Controllers
         [HttpDelete]
         public async Task<Response<DeleteUserResponse>> DeleteUser()
         {
-            var command = new DeleteUserCommand { UserId = UserId };
+            var command = new DeleteUserCommand
+            {
+                UserId = UserId
+            };
+
             return Success(await Mediator.Send(command));
         }
     }
