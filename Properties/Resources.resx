@@ -141,6 +141,12 @@
   <data name="ErrorHttp500" xml:space="preserve">
     <value>Internal Server Error.</value>
   </data>
+  <data name="ExceptionErrorEmailAddressAlreadyExists" xml:space="preserve">
+    <value>Die Email {0} existiert bereits. Gebe bitte eine andere an.</value>
+  </data>
+  <data name="ExceptionErrorUsernameAlreadyExists" xml:space="preserve">
+    <value>Der Username {0} existiert bereits. Gebe bitte einen anderen an.</value>
+  </data>
   <data name="ExceptionErrorWrongEmailPassword" xml:space="preserve">
     <value>E-Mail oder Password sind falsch.</value>
   </data>

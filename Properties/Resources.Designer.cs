@@ -133,6 +133,24 @@ namespace MyFridgeListWebapi.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Email {0} existiert bereits. Gebe bitte eine andere an. ähnelt.
+        /// </summary>
+        public static string ExceptionErrorEmailAddressAlreadyExists {
+            get {
+                return ResourceManager.GetString("ExceptionErrorEmailAddressAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Der Username {0} existiert bereits. Gebe bitte einen anderen an. ähnelt.
+        /// </summary>
+        public static string ExceptionErrorUsernameAlreadyExists {
+            get {
+                return ResourceManager.GetString("ExceptionErrorUsernameAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die E-Mail oder Password sind falsch. ähnelt.
         /// </summary>
         public static string ExceptionErrorWrongEmailPassword {
